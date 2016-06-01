@@ -1,0 +1,16 @@
+doctype html
+html
+  head
+    title=title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    section
+      header
+        h1='Verkehrsmeldungen'
+      if trafficIncidents
+        each incident in trafficIncidents
+          h2=incident['1'].content
+          p=incident.STARTTIME
+          p=incident.ENDTIME
+        h2='Keine Verkehrsmeldungen vorhanden'
+

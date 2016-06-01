@@ -1,0 +1,32 @@
+{
+  "name": "smartmirror-traffic",
+  "version": "1.0.0",
+  "description": "Traffic module for smart mirror using here maps traffic api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Calieston/smartmirror-traffic.git"
+  },
+  "keywords": [
+    "smartmirror",
+    "traffic",
+    "here maps traffic api"
+  ],
+  "author": "Calieston Varatharajah",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.13.4",
+    "jade": "^1.11.0",
+    "node-geocoder": "^3.10.0"
+  },
+  "homepage": "https://github.com/Calieston/smartmirror-traffic.git",
+  "smartmirror": {
+    "city": {
+      "type": "string",
+      "descr": "City to which you want to retrieve traffic information"
+    }
+  }
+}

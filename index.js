@@ -9,7 +9,7 @@ app.set('views', __dirname);
 app.set('view engine', 'jade');
 
 app.get('/', function(req, res) {
-  var city = 'München'
+  var city = 'Frankfurt'
   controller.get({
       city: city
     })
@@ -22,7 +22,7 @@ app.get('/', function(req, res) {
         incidents = 'empty'
       }
       res.render('app/view.jade', {
-        title: 'Verkehrsmeldungen',
+        title: 'Verkehrsstörungen',
         trafficIncidents: incidents,
         city: city
       });

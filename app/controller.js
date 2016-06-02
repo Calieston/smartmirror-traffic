@@ -35,7 +35,7 @@ exports.get = function(params) {
 
           // Handle http errors
           if (response.statusCode < 200 || response.statusCode > 299) {
-            reject(new Error('Failed to load traffic data, status code: ' + response.statusCode));
+            reject(new Error('Failed to load traffic incidents, status code: ' + response.statusCode));
           }
           // Temporary data holder
           const body = [];
@@ -48,7 +48,6 @@ exports.get = function(params) {
           // We are done, resolve promise with those joined chunks
           response.on('end', () => {
             resolve(JSON.parse(body.join('')));
-            console.log(JSON.parse(body.join('')))
           });
         });
 

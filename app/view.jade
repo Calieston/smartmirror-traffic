@@ -5,12 +5,13 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     section
-      header
-        h1='Verkehrsmeldungen'
-      if trafficIncidents
+      if trafficIncidents!='empty'
+        header
+          h1=trafficIncidents.length+' Verkehrsmeldung/en für '+city
         each incident in trafficIncidents
-          h2=incident['1'].content
-          p=incident.STARTTIME
-          p=incident.ENDTIME
-        h2='Keine Verkehrsmeldungen vorhanden'
+          h2=incident.TRAFFICITEMDESCRIPTION['0'].content
+          p='Start: '+incident.STARTTIME
+          p='Ende: '+incident.ENDTIME
+      else
+        h1='Keine Verkehrsmeldungen vorhanden'
 

@@ -4,27 +4,35 @@ var express = require('express');
 var app = express();
 var jsonfile = require('jsonfile')
 var controller = require('./app/controller');
+var fs = require('fs');
 
 app.set('views', __dirname);
 app.set('view engine', 'jade');
 
 app.get('/', function(req, res) {
-  var city = 'Frankfurt'
+  let pckg = fs.readFileSync('package.json');
+  pckg = JSON.parse(pckg);
+
+  let widget = {};
+  widget._id = '1234567890';
+  widget.size = pckg.smartmirror.size[0];
+
+  var city = 'Stuttgart'
   controller.get({
       city: city
     })
     .then((trafficIncidents) => {
-      var incidents
+      console.log(trafficIncidents);
+      var data
       // check if traffic incidents are available
       if (typeof(trafficIncidents.TRAFFICITEMS) != "undefined") {
-        incidents = trafficIncidents.TRAFFICITEMS.TRAFFICITEM
+        data = trafficIncidents.TRAFFICITEMS.TRAFFICITEM
       } else {
-        incidents = 'empty'
+        data = 'empty'
       }
-      res.render('app/view.jade', {
-        title: 'Verkehrsstörungen',
-        trafficIncidents: incidents,
-        city: city
+      res.render('./index.jade', {
+        data: data,
+        widget: widget,
       });
     });
 });

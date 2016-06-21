@@ -1,17 +1,7 @@
-doctype html
-html
-  head
-    title=title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    section
-      if trafficIncidents!='empty'
-        header
-          h1=trafficIncidents.length+' Verkehrsstörung/en für '+city
-        each incident in trafficIncidents
-          h2=incident.TRAFFICITEMDESCRIPTION['0'].content
-          p='Start: '+incident.STARTTIME
-          p='Ende: '+incident.ENDTIME
-      else
-        h1='Keine Verkehrsmeldungen vorhanden'
-
+if data!='empty'
+  each incident in data
+    h2=incident.TRAFFICITEMDESCRIPTION['0'].content
+    p='Start: '+incident.STARTTIME
+    p='Ende: '+incident.ENDTIME
+else
+  h1='Keine Verkehrsmeldungen vorhanden'

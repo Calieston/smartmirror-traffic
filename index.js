@@ -21,14 +21,7 @@ app.get('/', function(req, res) {
   controller.get({
       city: city
     })
-    .then((trafficIncidents) => {
-      var data
-      // check if traffic incidents are available
-      if (typeof(trafficIncidents.TRAFFICITEMS) != "undefined") {
-        data = trafficIncidents.TRAFFICITEMS.TRAFFICITEM
-      } else {
-        data = 'empty'
-      }
+    .then((data) => {
       res.render('./index.jade', {
         data: data,
         widget: widget,

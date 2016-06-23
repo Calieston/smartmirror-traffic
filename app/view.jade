@@ -1,5 +1,5 @@
-if data!='empty'
-  each incident in data
+if data.TRAFFICITEMS.TRAFFICITEM != 'undefined'
+  each incident in data.TRAFFICITEMS.TRAFFICITEM
     h2=incident.TRAFFICITEMDESCRIPTION['0'].content
     p='Start: '+incident.STARTTIME
     p='Ende: '+incident.ENDTIME

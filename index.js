@@ -17,12 +17,11 @@ app.get('/', function(req, res) {
   widget._id = '1234567890';
   widget.size = pckg.smartmirror.size[0];
 
-  var city = 'Stuttgart'
+  var city = 'Frankfurt'
   controller.get({
       city: city
     })
     .then((trafficIncidents) => {
-      console.log(trafficIncidents);
       var data
       // check if traffic incidents are available
       if (typeof(trafficIncidents.TRAFFICITEMS) != "undefined") {

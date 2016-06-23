@@ -17,7 +17,7 @@
   ],
   "author": "Calieston Varatharajah",
   "license": "MIT",
-  "dependencies": {
+  "devDependencies": {
     "express": "^4.13.4",
     "jade": "^1.11.0",
     "node-geocoder": "^3.10.0"
@@ -27,7 +27,7 @@
     "settings": {
       "city": {
         "type": "string",
-        "descr": "City to which you want to retrieve traffic information"
+        "desc": "City to which you want to retrieve traffic information"
       }
     },
     "size": ["4x4"]

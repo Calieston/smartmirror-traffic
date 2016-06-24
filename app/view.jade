@@ -1,7 +1,45 @@
 if data.TRAFFICITEMS.TRAFFICITEM != 'undefined'
   each incident in data.TRAFFICITEMS.TRAFFICITEM
-    h2=incident.TRAFFICITEMDESCRIPTION['0'].content
-    p='Start: '+incident.STARTTIME
-    p='Ende: '+incident.ENDTIME
+    article
+      h2=incident.TRAFFICITEMDESCRIPTION['0'].content
+      p='Start: '+incident.STARTTIME
+      p='Ende: '+incident.ENDTIME
 else
   h1='Keine Verkehrsmeldungen vorhanden'
+
+style.
+  #widget-#{widget._id} {
+    overflow: hidden;
+  }
+
+  #widget-#{widget._id} div {
+    transition: transform 750ms;
+    transform: translateY(0px);
+  }
+
+  #widget-#{widget._id} article {
+    margin-bottom: 20px;
+  }
+
+  #widget-#{widget._id} h2, #widget-#{widget._id} p {
+    margin: 0 0 10px;
+  }
+
+script.
+  var module = document.getElementById('widget-#{widget._id}'),
+      wrapper = module.querySelector('div'),
+      articles = module.querySelectorAll('article');
+  var timer = 1000 * #{widget.settings.timer} || 1000*15;
+  var index = 1;
+
+  setInterval(function(){
+    if(index == articles.length) {
+      index = 0;
+    }
+    wrapper.style.transform = 'translateY(-' + articles[index].offsetTop + 'px)';
+    index++;
+  }, timer);
+
+
+
+

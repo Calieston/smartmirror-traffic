@@ -28,6 +28,10 @@
       "city": {
         "type": "string",
         "desc": "City to which you want to retrieve traffic information"
+      },
+      "timer": {
+        "type": "number",
+        "desc": "Timer"
       }
     },
     "size": ["4x4"]

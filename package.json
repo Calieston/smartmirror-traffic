@@ -17,10 +17,12 @@
   ],
   "author": "Calieston Varatharajah",
   "license": "MIT",
+  "dependencies": {
+    "node-geocoder": "^3.10.0"
+  },
   "devDependencies": {
     "express": "^4.13.4",
     "jade": "^1.11.0",
-    "node-geocoder": "^3.10.0"
   },
   "homepage": "https://github.com/Calieston/smartmirror-traffic.git",
   "smartmirror": {

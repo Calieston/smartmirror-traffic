@@ -47,7 +47,22 @@ exports.get = function(params) {
 
           // We are done, resolve promise with those joined chunks
           response.on('end', () => {
-            resolve(JSON.parse(body.join('')));
+            var list = JSON.parse(body.join(''));
+            var newList = [];
+            list.TRAFFICITEMS.TRAFFICITEM.forEach(function(item) {
+              var newItem = {};
+              newItem.start = new Date(item.STARTTIME).toLocaleString();
+              newItem.end = new Date(item.ENDTIME).toLocaleString();
+              if(typeof(item.LOCATION.DEFINED) != 'undefined') {
+                if(typeof(item.LOCATION.DEFINED.ORIGIN) != 'undefined') {
+                  newItem.location = item.LOCATION.DEFINED.ORIGIN.ROADWAY.DESCRIPTION['0'].content;
+                }
+              }
+              newItem.description = item.TRAFFICITEMDESCRIPTION['0'].content;
+              newList.push(newItem);
+            });
+            console.log(newList);
+            resolve(newList);
           });
         });
 

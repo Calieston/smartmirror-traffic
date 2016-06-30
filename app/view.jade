@@ -32,8 +32,7 @@ ul.list-unstyled
         if incident.location != ''
           h3=incident.location
         h4=incident.description
-        p Start: #{incident.start}
-        p Ende: #{incident.end}
+        p Zeitraum: #{incident.start} - #{incident.end}
   else
     li
       h2='Keine Verkehrsmeldungen vorhanden'

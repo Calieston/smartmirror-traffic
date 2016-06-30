@@ -2,7 +2,6 @@
 
 var express = require('express');
 var app = express();
-var jsonfile = require('jsonfile')
 var controller = require('./app/controller');
 var fs = require('fs');
 

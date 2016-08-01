@@ -18,7 +18,7 @@ app.get('/', function(req, res) {
   widget.settings = {};
   widget.settings.timer = 10;
 
-  var city = 'Frankfurt'
+  var city = 'Stuttgart'
   controller.get({
       city: city
     })

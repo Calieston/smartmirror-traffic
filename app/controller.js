@@ -18,8 +18,8 @@ exports.get = function(params) {
 
     let city = params.city
     let zoom = '15000'
-    let app_id = 'CJKsdR5hFvi0463h2W9H'
-    let app_code = 'n5pTnhodrqg6vCAfVYCewA'
+    let app_id = 'mVsZ3abXjL0QtVV9UC4j'
+    let app_code = 'JJ9KJtIiiIDf0Sx5ddAWAQ'
       // convert city to coordinates
     geocoder.geocode(city)
       .then(function(res) {
@@ -29,7 +29,6 @@ exports.get = function(params) {
         let urlEnd = '%2C' + long + '%2C' + zoom + '&criticality=0%2C1&app_id=' + app_id + '&app_code=' + app_code
           // Select http or https module, depending on reqested url
         const lib = urlStart.startsWith('https') ? require('https') : require('http');
-
         // Fire the get request
         const request = lib.get(urlStart + urlEnd, (response) => {
 
@@ -61,7 +60,6 @@ exports.get = function(params) {
               newItem.description = item.TRAFFICITEMDESCRIPTION['0'].content;
               newList.push(newItem);
             });
-            console.log(newList);
             resolve(newList);
           });
         });

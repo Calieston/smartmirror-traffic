@@ -36,6 +36,7 @@
         "desc": "Timer"
       }
     },
-    "size": ["4x4"]
+    "size": ["4x4"],
+    "gestureSupport": true
   }
 }
